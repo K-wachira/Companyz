@@ -10,5 +10,4 @@ const {
 router.route("/login").get(handleLogin).post(validateForm, attemptLogin);
 router.post("/signup", validateForm, attemptRegister);
 
-
 module.exports = router;

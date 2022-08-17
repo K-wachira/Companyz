@@ -35,7 +35,6 @@ module.exports.attemptLogin = async (req, res) => {
 };
 
 module.exports.attemptRegister = async (req, res) => {
-
   const existingUser = await pool.query(
     "SELECT username from users WHERE username=$1",
     [req.body.username]

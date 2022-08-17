@@ -1,7 +1,5 @@
 //  chakra template gotten from https://chakra-templates.dev/templates/navigation/navbar/withDarkModeSwitcher
 
-
-
 import { useContext, useState, useEffect, createContext } from "react";
 import { useNavigate } from "react-router";
 import {
@@ -20,61 +18,67 @@ import {
   Stack,
   useColorMode,
   Center,
-  Heading, Text,
-} from '@chakra-ui/react';
-import { MoonIcon, SunIcon, InfoIcon, ArrowBackIcon } from '@chakra-ui/icons';
+  Heading,
+  Text,
+} from "@chakra-ui/react";
+import { MoonIcon, SunIcon, InfoIcon, ArrowBackIcon } from "@chakra-ui/icons";
 import { AccountContext } from "../AccountContext";
-
 
 const NavLink = ({ children }: { children: ReactNode }) => (
   <Link
     px={2}
     py={1}
-    rounded={'md'}
+    rounded={"md"}
     _hover={{
-      textDecoration: 'none',
-      bg: useColorModeValue('gray.200', 'gray.700'),
+      textDecoration: "none",
+      bg: useColorModeValue("gray.200", "gray.700"),
     }}
-    href={'#'}>
+    href={"#"}
+  >
     {children}
   </Link>
 );
 
 export default function Nav() {
-  const {user,  setUser,  profile, setProfile  } = useContext(AccountContext);
+  const { user, setUser, profile, setProfile } = useContext(AccountContext);
   const { colorMode, toggleColorMode } = useColorMode();
   const { isOpen, onOpen, onClose } = useDisclosure();
   const navigate = useNavigate();
-  
+
   return profile.id === undefined ? (
     <Text>LoadWaiting...</Text>
   ) : (
     <>
       <Box px={4}>
-        <Flex h={16} alignItems={'center'} justifyContent={'space-between'}>
+        <Flex h={16} alignItems={"center"} justifyContent={"space-between"}>
           <Box>CompanyZ</Box>
-          <Flex alignItems={'center'}>
-            <Stack direction={'row'} spacing={7}>
+          <Flex alignItems={"center"}>
+            <Stack direction={"row"} spacing={7}>
               <Menu>
                 <MenuButton
                   as={Button}
-                  rounded={'full'}
-                  variant={'link'}
-                  cursor={'pointer'}
-                  minW={0}>
+                  rounded={"full"}
+                  variant={"link"}
+                  cursor={"pointer"}
+                  minW={0}
+                >
                   <Avatar
-                    size={'sm'}
-                    src={"http://localhost:4000/assets/image/" +profile.avatar_url}
-
+                    size={"sm"}
+                    src={
+                      "http://localhost:4000/assets/image/" + profile.avatar_url
+                    }
                   />
                 </MenuButton>
-                <MenuList alignItems={'center'}>
+                <MenuList alignItems={"center"}>
                   <br />
                   <Center>
                     <Avatar
-                      size={'2xl'}
-                      src={"http://localhost:4000/assets/image/" +profile.avatar_url}
-                      />
+                      size={"2xl"}
+                      src={
+                        "http://localhost:4000/assets/image/" +
+                        profile.avatar_url
+                      }
+                    />
                   </Center>
                   <br />
                   <Center>
@@ -82,7 +86,9 @@ export default function Nav() {
                   </Center>
                   <br />
                   <MenuDivider />
-                  <MenuItem onClick={() => navigate("/profile")} >Account Settings</MenuItem>
+                  <MenuItem onClick={() => navigate("/profile")}>
+                    Account Settings
+                  </MenuItem>
                   <MenuItem>Logout</MenuItem>
                 </MenuList>
               </Menu>
@@ -91,7 +97,6 @@ export default function Nav() {
         </Flex>
       </Box>
       <Box p={4}>Main Content Here</Box>
-
     </>
   );
 }

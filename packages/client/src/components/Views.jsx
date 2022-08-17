@@ -11,8 +11,6 @@ import Profile from "./content/Profile";
 import EditProfile from "./content/EditProfile";
 import VerifyAccount from "./content/VerifyAccount";
 
-
-
 const Views = () => {
   const { user } = useContext(AccountContext);
   return user.loggedIn === null ? (
@@ -26,7 +24,6 @@ const Views = () => {
         <Route path="/profile" element={<Profile />} />
         <Route path="/editprofile" element={<EditProfile />} />
         <Route path="/verify" element={<VerifyAccount />} />
-
       </Route>
       <Route path="*" element={<PageNotFound />} />
     </Routes>

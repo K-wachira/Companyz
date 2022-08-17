@@ -7,7 +7,7 @@ const validateForm = (req, res, next) => {
     .catch(() => {
       res.status(422).send();
     })
-    .then(valid => {
+    .then((valid) => {
       if (valid) {
         next();
       } else {

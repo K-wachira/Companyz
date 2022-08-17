@@ -25,16 +25,16 @@ const Login = () => {
           },
           body: JSON.stringify(vals),
         })
-          .catch(err => {
+          .catch((err) => {
             return;
           })
-          .then(res => {
+          .then((res) => {
             if (!res || !res.ok || res.status >= 400) {
               return;
             }
             return res.json();
           })
-          .then(data => {
+          .then((data) => {
             if (!data) return;
             setUser({ ...data });
             if (data.status) {

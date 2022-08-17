@@ -3,10 +3,9 @@ const { Server } = require("socket.io");
 const app = express();
 const helmet = require("helmet");
 const cors = require("cors");
-const  authRouter = require("./routers/authRouter");
-const  profRouter = require("./routers/profRouter");
-const  mediaRouter = require("./routers/mediaRouter");
-
+const authRouter = require("./routers/authRouter");
+const profRouter = require("./routers/profRouter");
+const mediaRouter = require("./routers/mediaRouter");
 
 const session = require("express-session");
 const Redis = require("ioredis");
@@ -49,8 +48,7 @@ app.use("/auth", authRouter);
 app.use("/profile", profRouter);
 app.use("/assets", mediaRouter);
 
-
-io.on("connect", socket => {});
+io.on("connect", (socket) => {});
 
 server.listen(4000, () => {
   console.log("Server listening on port 4000");

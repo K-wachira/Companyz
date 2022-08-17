@@ -12,8 +12,6 @@ const SignUp = () => {
   const [error, setError] = useState(null);
   const navigate = useNavigate();
 
- 
-        
   return (
     <Formik
       initialValues={{ username: "", password: "" }}
@@ -29,16 +27,16 @@ const SignUp = () => {
           },
           body: JSON.stringify(vals),
         })
-          .catch(err => {
+          .catch((err) => {
             return;
           })
-          .then(res => {
+          .then((res) => {
             if (!res || !res.ok || res.status >= 400) {
               return;
             }
             return res.json();
           })
-          .then(data => {
+          .then((data) => {
             if (!data) return;
             setUser({ ...data });
             if (data.status) {
@@ -80,7 +78,10 @@ const SignUp = () => {
           <Button colorScheme="teal" type="submit">
             Create Account
           </Button>
-          <Button onClick={() => navigate("/login")} leftIcon={<ArrowBackIcon />}>
+          <Button
+            onClick={() => navigate("/login")}
+            leftIcon={<ArrowBackIcon />}
+          >
             Back
           </Button>
         </ButtonGroup>
