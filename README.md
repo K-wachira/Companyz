@@ -64,6 +64,8 @@ This application requires you have the following installed on your machine:
     AWS_SECRET_KEY=
 ```
 
+ * Exceute query in the `database.sql` file on the created database to create relevant fields and table.
+
 ### TROUBLESHOOTING
 ---------------
 
