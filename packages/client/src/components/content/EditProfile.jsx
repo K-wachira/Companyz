@@ -8,7 +8,6 @@ import {
   Select,
   Box,
 } from "@chakra-ui/react";
-import { formSchema } from "@companyz/common";
 import { Form, Formik } from "formik";
 import { useContext, useState } from "react";
 import { useNavigate } from "react-router";

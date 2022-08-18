@@ -122,9 +122,9 @@ const VerifyAccount = () => {
             ></Input>
           </form>
           {images.map((image) => (
-            <p key={image}>
+            <span key={image}>
               <img src={image}></img>
-            </p>
+            </span>
           ))}
         </Center>
 

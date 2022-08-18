@@ -1,5 +1,5 @@
 import { Button, ButtonGroup, Heading, Text, VStack } from "@chakra-ui/react";
-import { formSchema } from "@companyz/common";
+import { loginFormSchema } from "@companyz/common";
 import { Form, Formik } from "formik";
 import { useContext, useState } from "react";
 import { useNavigate } from "react-router";
@@ -13,7 +13,7 @@ const Login = () => {
   return (
     <Formik
       initialValues={{ username: "", password: "" }}
-      validationSchema={formSchema}
+      validationSchema={loginFormSchema}
       onSubmit={(values, actions) => {
         const vals = { ...values };
         actions.resetForm();
@@ -71,6 +71,7 @@ const Login = () => {
           label="Password"
           type="password"
         />
+
 
         <ButtonGroup pt="1rem">
           <Button colorScheme="teal" type="submit">

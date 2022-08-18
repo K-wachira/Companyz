@@ -116,9 +116,9 @@ export default function Nav() {
             </Button>
           </form>
           {images.map((image) => (
-            <div key={image}>
+            <span key={image}>
               <img src={image}></img>
-            </div>
+            </span>
           ))}
         </Center>
 

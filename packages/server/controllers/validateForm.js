@@ -1,8 +1,8 @@
-const { formSchema } = require("@companyz/common");
+const { loginFormSchema, signupFormSchema } = require("@companyz/common");
 
-const validateForm = (req, res, next) => {
+const validateLoginForm = (req, res, next) => {
   const formData = req.body;
-  formSchema
+  loginFormSchema
     .validate(formData)
     .catch(() => {
       res.status(422).send();
@@ -16,4 +16,20 @@ const validateForm = (req, res, next) => {
     });
 };
 
-module.exports = validateForm;
+const validateSignupForm = (req, res, next) => {
+  const formData = req.body;
+  signupFormSchema
+    .validate(formData)
+    .catch(() => {
+      res.status(422).send();
+    })
+    .then((valid) => {
+      if (valid) {
+        next();
+      } else {
+        res.status(422).send();
+      }
+    });
+};
+
+module.exports = { validateLoginForm, validateSignupForm };

@@ -1,5 +1,8 @@
 const express = require("express");
-const validateForm = require("../controllers/validateForm");
+const {
+  validateLoginForm,
+  validateSignupForm,
+} = require("../controllers/validateForm");
 const router = express.Router();
 const {
   handleLogin,
@@ -7,7 +10,7 @@ const {
   attemptRegister,
 } = require("../controllers/authController");
 
-router.route("/login").get(handleLogin).post(validateForm, attemptLogin);
-router.post("/signup", validateForm, attemptRegister);
+router.route("/login").get(handleLogin).post(validateLoginForm, attemptLogin);
+router.post("/signup", validateSignupForm, attemptRegister);
 
 module.exports = router;

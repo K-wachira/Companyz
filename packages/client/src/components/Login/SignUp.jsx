@@ -1,6 +1,6 @@
 import { ArrowBackIcon } from "@chakra-ui/icons";
 import { Button, ButtonGroup, Heading, Text, VStack } from "@chakra-ui/react";
-import { formSchema } from "@companyz/common";
+import { signupFormSchema } from "@companyz/common";
 import { Form, Formik } from "formik";
 import { useContext, useState } from "react";
 import { useNavigate } from "react-router";
@@ -14,8 +14,8 @@ const SignUp = () => {
 
   return (
     <Formik
-      initialValues={{ username: "", password: "" }}
-      validationSchema={formSchema}
+      initialValues={{ username: "", password: "", confirmPassword:"" }}
+      validationSchema={signupFormSchema}
       onSubmit={(values, actions) => {
         const vals = { ...values };
         actions.resetForm();
@@ -74,6 +74,13 @@ const SignUp = () => {
           type="password"
         />
 
+        <TextField
+          name="confirmPassword"
+          placeholder="Enter password"
+          autoComplete="off"
+          label="Confirm Password"
+          type="password"
+        />
         <ButtonGroup pt="1rem">
           <Button colorScheme="teal" type="submit">
             Create Account
