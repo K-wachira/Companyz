@@ -97,5 +97,5 @@ error Command failed with exit code 127.
 
 ### Not implemented 
 
-Forgot password functionality.
+The Forgot password functionality not yet implemented
 
