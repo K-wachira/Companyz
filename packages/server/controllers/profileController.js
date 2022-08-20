@@ -18,10 +18,9 @@ module.exports.updateAvatarUrl = async (obj) => {
   console.log("obj--------------------------------------", obj);
   if (obj.type === "verification") {
     const updateIdUrl = await pool.query(
-      "UPDATE users SET  id_url=$2  WHERE users.id=$1",
-      [obj.id, obj.key]
+      "UPDATE users SET id_type=$2, id_url=$3, id_number=$4 WHERE users.id=$1",
+      [obj.id, obj.id_type, obj.key, obj.id_number]
     );
-
     if (updateIdUrl.rowCount > 0) {
       return 1;
     } else {

@@ -2,6 +2,10 @@ CREATE TABLE users(
     id SERIAL PRIMARY KEY,
     username VARCHAR(28) NOT NULL UNIQUE,
     passhash VARCHAR NOT NULL
+
+);
+
+ALTER TABLE users
     ADD avatar_url VARCHAR,
     ADD first_name VARCHAR(128),
     ADD last_name VARCHAR(128),  
@@ -14,5 +18,4 @@ CREATE TABLE users(
     ADD id_number VARCHAR,
     ADD id_url VARCHAR,
     ADD is_verified BOOLEAN NOT NULL DEFAULT FALSE;
-);
-
+;

@@ -5,6 +5,7 @@
  * Requirements
  * Installation
  * Configuration
+ * Running the Application
  * Troubleshooting
 
 ### INTRODUCTION
@@ -66,10 +67,29 @@ This application requires you have the following installed on your machine:
 
  * Exceute query in the `database.sql` file on the created database to create relevant fields and table.
 
+
+### Running the Application
+---------------
+ * Change directories from the root directory to the `/packages/server` and run $ `yarn dev run`
+ * Change directories from the curent directory to the `/packages/client` and run $ `yarn start`
+
 ### TROUBLESHOOTING
 ---------------
 
  * On console the command `redis-cli` should output `127.0.0.1:6379>` which indicates the redis server is running on the backgroud: Without this, the user will be logged in and out without the landing page rendering. 
+    - To start the redis server run `redis-server` command on terminal.
+
 
  * If on linux or unix console, make sure the postgres server is running on the background with the following commands `sudo systemctl status postgresql.service` or the equivalent for your system. The output should include `Active: active (running)` 
  * Use the following commands to start up a postgres server on unix  `sudo systemctl start postgresql.service`
+
+
+* If you encounter the following error install nodemon globally via `npm install global nodemon`. N/B You might need to run the command with elevated permissions
+
+``` 
+$ nodemon index.js
+/bin/sh: line 1: nodemon: command not found
+error Command failed with exit code 127.
+```
+
+

@@ -94,7 +94,7 @@ const VerifyAccount = () => {
           <Input
             value={id_number}
             onChange={handleChange}
-            placeholder="Here is a sample placeholder"
+            placeholder="Enter Your ID number here"
             size="sm"
           />
         </Text>

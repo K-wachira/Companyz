@@ -13,6 +13,7 @@ const { updateAvatarUrl } = require("../controllers/profileController");
 
 router.get("/image/:key", (req, res) => {
   const key = req.params.key;
+  console.log(key)
   const readStream = getFileStream(key);
   readStream.pipe(res);
 });
@@ -21,6 +22,8 @@ router.post("/images", upload.single("image"), async (req, res) => {
   const file = req.file;
   const result = await uploadFile(file);
   await unlinkFile(file.path);
+  console.log(result.key)
+
   updateAvatarUrl({
     key: result.key,
     id: req.body.id,
