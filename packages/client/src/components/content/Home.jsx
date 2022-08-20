@@ -1,6 +1,6 @@
 //  chakra template gotten from https://chakra-templates.dev/templates/navigation/navbar/withDarkModeSwitcher
 
-import { useContext, useState, useEffect, createContext } from "react";
+import { useContext} from "react";
 import { useNavigate } from "react-router";
 import {
   Box,
@@ -13,15 +13,11 @@ import {
   MenuList,
   MenuItem,
   MenuDivider,
-  useDisclosure,
   useColorModeValue,
   Stack,
-  useColorMode,
   Center,
-  Heading,
   Text,
 } from "@chakra-ui/react";
-import { MoonIcon, SunIcon, InfoIcon, ArrowBackIcon } from "@chakra-ui/icons";
 import { AccountContext } from "../AccountContext";
 
 const NavLink = ({ children }: { children: ReactNode }) => (
@@ -40,9 +36,8 @@ const NavLink = ({ children }: { children: ReactNode }) => (
 );
 
 export default function Nav() {
-  const { user, setUser, profile, setProfile } = useContext(AccountContext);
-  const { colorMode, toggleColorMode } = useColorMode();
-  const { isOpen, onOpen, onClose } = useDisclosure();
+  const { user, profile } = useContext(AccountContext);
+
   const navigate = useNavigate();
 
   function out(){

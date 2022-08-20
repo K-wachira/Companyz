@@ -1,4 +1,4 @@
-import { ArrowBackIcon, CloseIcon } from "@chakra-ui/icons";
+import { CloseIcon } from "@chakra-ui/icons";
 import {
   Button,
   ButtonGroup,
@@ -6,7 +6,6 @@ import {
   Text,
   VStack,
   Select,
-  Box,
 } from "@chakra-ui/react";
 import { Form, Formik } from "formik";
 import { useContext, useState } from "react";
@@ -15,7 +14,7 @@ import { AccountContext } from "../AccountContext";
 import TextField from "../shared/TextField";
 
 const EditProfile = () => {
-  const { user, setUser, profile, setProfile } = useContext(AccountContext);
+  const { user, profile } = useContext(AccountContext);
   const [error, setError] = useState(null);
   const navigate = useNavigate();
 

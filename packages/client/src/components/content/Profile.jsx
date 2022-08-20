@@ -1,7 +1,7 @@
 //  chakra template gotten from https://chakra-templates.dev/templates/navigation/navbar/withDarkModeSwitcher
 
 import { useNavigate } from "react-router";
-import { useContext, useState, useEffect, createContext } from "react";
+import { useContext, useState, } from "react";
 import { AccountContext } from "../AccountContext";
 import axios from "axios";
 import {
@@ -9,10 +9,8 @@ import {
   Flex,
   Avatar,
   Button,
-  useDisclosure,
   useColorModeValue,
   Stack,
-  useColorMode,
   Center,
   Text,
   Input,
@@ -37,13 +35,11 @@ async function postImage({ image, profile }) {
 }
 
 export default function Nav() {
-  const { user, setUser, profile, setProfile } = useContext(AccountContext);
-  const { colorMode, toggleColorMode } = useColorMode();
+  const { profile, } = useContext(AccountContext);
   const navigate = useNavigate();
 
   const [file, setFile] = useState();
   const [images, setImages] = useState([]);
-  const [avatar, setAvatar] = useState([]);
 
   const submit = async (event) => {
     event.preventDefault();

@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 import notfound from "../assets/gifs/not-found-ghost.gif";
 const PageNotFound = () => {
   return (

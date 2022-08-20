@@ -1,4 +1,4 @@
-import { ArrowBackIcon, CloseIcon } from "@chakra-ui/icons";
+import {  CloseIcon } from "@chakra-ui/icons";
 import {
   Button,
   ButtonGroup,
@@ -6,14 +6,12 @@ import {
   Text,
   VStack,
   Select,
-  Box,
   Center,
   Input,
 } from "@chakra-ui/react";
-import { formSchema } from "@companyz/common";
 import { Form, Formik } from "formik";
 import { useNavigate } from "react-router";
-import { useContext, useState, useEffect, createContext } from "react";
+import { useContext, useState} from "react";
 import { AccountContext } from "../AccountContext";
 import axios from "axios";
 
@@ -35,7 +33,7 @@ async function postNid({ image, profile, id_type, id_number }) {
 }
 
 const VerifyAccount = () => {
-  const { user, setUser, profile, setProfile } = useContext(AccountContext);
+  const { profile } = useContext(AccountContext);
   const [error, setError] = useState(null);
   const navigate = useNavigate();
 
@@ -44,7 +42,6 @@ const VerifyAccount = () => {
 
   const [file, setFile] = useState();
   const [images, setImages] = useState([]);
-  const [avatar, setAvatar] = useState([]);
 
   const submit = async (event) => {
     const result = await postNid({ image: file, profile, id_type, id_number });
