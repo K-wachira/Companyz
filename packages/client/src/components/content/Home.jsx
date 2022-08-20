@@ -13,11 +13,15 @@ import {
   MenuList,
   MenuItem,
   MenuDivider,
+  useDisclosure,
   useColorModeValue,
   Stack,
+  useColorMode,
   Center,
+  Heading,
   Text,
 } from "@chakra-ui/react";
+import { MoonIcon, SunIcon, InfoIcon, ArrowBackIcon } from "@chakra-ui/icons";
 import { AccountContext } from "../AccountContext";
 
 const NavLink = ({ children }: { children: ReactNode }) => (
@@ -36,8 +40,9 @@ const NavLink = ({ children }: { children: ReactNode }) => (
 );
 
 export default function Nav() {
-  const { user, profile } = useContext(AccountContext);
-
+  const { user, setUser, profile, setProfile } = useContext(AccountContext);
+  const { colorMode, toggleColorMode } = useColorMode();
+  const { isOpen, onOpen, onClose } = useDisclosure();
   const navigate = useNavigate();
 
   function out(){
