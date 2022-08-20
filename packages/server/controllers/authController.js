@@ -56,3 +56,14 @@ module.exports.attemptRegister = async (req, res) => {
     res.json({ loggedIn: false, status: "Username taken" });
   }
 };
+
+exports.logout = async function (req, res) {
+  req.session.destroy(function (err) {
+    if (err) {
+      throw new Error(err);
+    } else {
+      res.clearCookie(process.env.COOKIE_SECRET);
+      return res.redirect('/');
+    }
+  });
+};  

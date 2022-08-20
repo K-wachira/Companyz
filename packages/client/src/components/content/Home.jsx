@@ -45,6 +45,17 @@ export default function Nav() {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const navigate = useNavigate();
 
+  function out(){
+    fetch("http://localhost:4000/auth/logout", {
+      body: JSON.stringify({}),
+    }).catch((err) => {
+      return;
+    })
+      .then((data) => {
+        console.log("Loggged out")
+        navigate("/login")
+      })
+  }
   return profile.id === undefined ? (
     <Text>LoadWaiting...</Text>
   ) : (
@@ -89,7 +100,7 @@ export default function Nav() {
                   <MenuItem onClick={() => navigate("/profile")}>
                     Account Settings
                   </MenuItem>
-                  <MenuItem>Logout</MenuItem>
+                  <MenuItem onClick={ () =>out() }>Logout</MenuItem>
                 </MenuList>
               </Menu>
             </Stack>
