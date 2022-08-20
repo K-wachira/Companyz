@@ -72,6 +72,8 @@ This application requires you have the following installed on your machine:
 ---------------
  * Change directories from the root directory to the `/packages/server` and run $ `yarn dev run`
  * Change directories from the curent directory to the `/packages/client` and run $ `yarn start`
+    - Client facing side can be accesed via localhost:3000/login 
+ * 
 
 ### TROUBLESHOOTING
 ---------------
@@ -92,4 +94,8 @@ $ nodemon index.js
 error Command failed with exit code 127.
 ```
 
+
+### Not implemented 
+
+Forgot password functionality.
 

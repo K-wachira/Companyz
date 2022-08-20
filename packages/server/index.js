@@ -6,7 +6,7 @@ const cors = require("cors");
 const authRouter = require("./routers/authRouter");
 const profRouter = require("./routers/profRouter");
 const mediaRouter = require("./routers/mediaRouter");
-
+const reviewerRouter = require("./routers/reviewerRouter");
 const session = require("express-session");
 const Redis = require("ioredis");
 const server = require("http").createServer(app);
@@ -47,6 +47,7 @@ app.use(
 app.use("/auth", authRouter);
 app.use("/profile", profRouter);
 app.use("/assets", mediaRouter);
+app.use("/reviewer", reviewerRouter);
 
 io.on("connect", (socket) => {});
 
