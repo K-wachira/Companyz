@@ -1,6 +1,5 @@
 //  chakra template gotten from https://chakra-templates.dev/templates/navigation/navbar/withDarkModeSwitcher
-
-import { useContext} from "react";
+import {React , useContext } from "react";
 import { useNavigate } from "react-router";
 import {
   Box,
@@ -45,19 +44,22 @@ export default function Nav() {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const navigate = useNavigate();
 
-  function out(){
+  function out() {
     fetch("http://localhost:4000/auth/logout", {
       body: JSON.stringify({}),
-    }).catch((err) => {
-      return;
     })
-      .then((data) => {
-        console.log("Loggged out")
-        navigate("/login")
+      .catch((err) => {
+        return;
       })
+      .then((data) => {
+        console.log("Loggged out");
+        navigate("/login");
+      });
   }
   return profile.id === undefined ? (
-    <Text>LoadWaiting...</Text>
+    <Center>
+      <img alt="Loading" src="/assets/Gifs/loadingdark.gif" />
+    </Center>
   ) : (
     <>
       <Box px={4}>
@@ -100,7 +102,7 @@ export default function Nav() {
                   <MenuItem onClick={() => navigate("/profile")}>
                     Account Settings
                   </MenuItem>
-                  <MenuItem onClick={ () =>out() }>Logout</MenuItem>
+                  <MenuItem onClick={() => out()}>Logout</MenuItem>
                 </MenuList>
               </Menu>
             </Stack>

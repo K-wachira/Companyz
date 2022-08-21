@@ -1,10 +1,11 @@
 import React from "react";
-import notfound from "../assets/gifs/not-found-ghost.gif";
+import { Text, Center } from "@chakra-ui/layout";
+
 const PageNotFound = () => {
   return (
-    <div>
-      <img alt="timer" src={notfound} />
-    </div>
+    <Center>
+      <img alt="timer" src="/assets/Gifs/not-found-ghost.gif" />
+    </Center>
   );
 };
 

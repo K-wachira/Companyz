@@ -1,4 +1,4 @@
-import { Text } from "@chakra-ui/layout";
+import { Text, Center } from "@chakra-ui/layout";
 import { useContext } from "react";
 import { Route, Routes } from "react-router-dom";
 import { AccountContext } from "./AccountContext";
@@ -14,7 +14,9 @@ import VerifyAccount from "./content/VerifyAccount";
 const Views = () => {
   const { user } = useContext(AccountContext);
   return user.loggedIn === null ? (
-    <Text>Loading...</Text>
+    <Center>
+    <img alt="Loading" src="/assets/Gifs/loadingdark.gif" />
+  </Center>
   ) : (
     <Routes>
       <Route path="/login" element={<Login />} />
