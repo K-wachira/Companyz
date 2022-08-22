@@ -60,33 +60,21 @@ const Login = () => {
         h="100vh"
         spacing="1rem"
       >
-        <Heading>Log In</Heading>
+        <Heading>Reset Password</Heading>
         <Text as="p" color="red.500">
           {error}
         </Text>
         <TextField
           name="username"
-          placeholder="Enter username"
+          placeholder="Enter Email"
           autoComplete="off"
           label="Username"
         />
-
-        <TextField
-          name="password"
-          placeholder="Enter password"
-          autoComplete="off"
-          label="Password"
-          type="password"
-        />
-        <Center>
-          <Text onClick={() => navigate("/forgotpassword") }>Forgot Password ? </Text>
-        </Center>
-
         <ButtonGroup pt="1rem">
           <Button colorScheme="teal" type="submit">
-            Log In
+            Submit
           </Button>
-          <Button onClick={() => navigate("/register")}>Create Account</Button>
+          <Button onClick={() => navigate("/login")}>Cancel</Button>
         </ButtonGroup>
       </VStack>
     </Formik>

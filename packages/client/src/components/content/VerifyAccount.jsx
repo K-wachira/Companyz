@@ -23,7 +23,6 @@ async function postNid({ image, profile, id_type, id_number }) {
     id_number: id_number,
     type: "verification",
   };
-  console.log(formData);
   const result = await axios.post(
     "http://localhost:4000/assets/images",
     formData,

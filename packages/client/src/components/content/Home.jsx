@@ -1,5 +1,5 @@
 //  chakra template gotten from https://chakra-templates.dev/templates/navigation/navbar/withDarkModeSwitcher
-import {React , useContext } from "react";
+import { React, useContext } from "react";
 import { useNavigate } from "react-router";
 import {
   Box,
@@ -43,7 +43,10 @@ export default function Nav() {
   const { colorMode, toggleColorMode } = useColorMode();
   const { isOpen, onOpen, onClose } = useDisclosure();
   const navigate = useNavigate();
-
+  const a_url =
+    profile.avatar_url === null
+      ? "db1cebddeddd292fd46fcdbcc37033fc"
+      : profile.avatar_url;
   function out() {
     fetch("http://localhost:4000/auth/logout", {
       body: JSON.stringify({}),
@@ -77,9 +80,7 @@ export default function Nav() {
                 >
                   <Avatar
                     size={"sm"}
-                    src={
-                      "http://localhost:4000/assets/image/" + profile.avatar_url
-                    }
+                    src={"http://localhost:4000/assets/image/" + a_url}
                   />
                 </MenuButton>
                 <MenuList alignItems={"center"}>
@@ -87,10 +88,7 @@ export default function Nav() {
                   <Center>
                     <Avatar
                       size={"2xl"}
-                      src={
-                        "http://localhost:4000/assets/image/" +
-                        profile.avatar_url
-                      }
+                      src={"http://localhost:4000/assets/image/" + a_url}
                     />
                   </Center>
                   <br />
@@ -109,7 +107,9 @@ export default function Nav() {
           </Flex>
         </Flex>
       </Box>
-      <Box p={4}>Main Content Here</Box>
+      <Center>
+        <Box p={4}>Main Content Goes Here</Box>
+      </Center>
     </>
   );
 }

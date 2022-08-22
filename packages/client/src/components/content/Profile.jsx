@@ -183,13 +183,12 @@ export default function Nav() {
                 <Text as={"span"} fontWeight={"bold"}>
                   Identification Document:
                 </Text>{" "}
-                PassPort
+                
               </ListItem>
               <ListItem>
                 <Text as={"span"} fontWeight={"bold"}>
                   Identification Number:
                 </Text>{" "}
-                12345678910
               </ListItem>
             </List>
           </Box>
