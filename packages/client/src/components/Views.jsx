@@ -4,7 +4,8 @@ import { Route, Routes } from "react-router-dom";
 import { AccountContext } from "./AccountContext";
 import Login from "./Login/Login";
 import SignUp from "./Login/SignUp";
-import ForgotPass from "./Login/forgotpassword";
+import ForgotPassword from "./Login/forgotpassword";
+import ResetPassword from "./Login/ResetPassword";
 import PrivateRoutes from "./PrivateRoutes";
 import PageNotFound from "./shared/404";
 import Home from "./content/Home";
@@ -22,15 +23,15 @@ const Views = () => {
     <Routes>
       <Route path="/login" element={<Login />} />
       <Route path="/register" element={<SignUp />} />
-      <Route path="/forgotpassword" element={< ForgotPass/>} />
-
+      <Route path="/forgotpassword" element={< ForgotPassword/>} />
+      <Route path="/reset-password/:token" element={< ResetPassword/>} />
+      <Route path="*" element={<PageNotFound />} />
       <Route element={<PrivateRoutes />}>
         <Route path="/home" element={<Home />} />
         <Route path="/profile" element={<Profile />} />
         <Route path="/editprofile" element={<EditProfile />} />
         <Route path="/verify" element={<VerifyAccount />} />
       </Route>
-      <Route path="*" element={<PageNotFound />} />
     </Routes>
   );
 };

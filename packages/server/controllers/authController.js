@@ -1,5 +1,7 @@
 const pool = require("../db");
 const bcrypt = require("bcrypt");
+var jwt = require("jsonwebtoken");
+const { sendResetEMail } = require("./emailController");
 
 module.exports.handleLogin = (req, res) => {
   if (req.session.user && req.session.user.username) {
@@ -63,7 +65,45 @@ exports.logout = async function (req, res) {
       throw new Error(err);
     } else {
       res.clearCookie(process.env.COOKIE_SECRET);
-      return res.redirect('/');
+      return res.redirect("/");
     }
   });
-};  
+};
+
+module.exports.forgotPassword = async (req, res) => {
+  const existingUser = await pool.query(
+    "SELECT username from users WHERE username=$1",
+    [req.body.username]
+  );
+  if (existingUser.rowCount === 0) {
+    // User not found
+    res.json({ loggedIn: false, status: "User does not exist." });
+  } else {
+    // resent Password token
+    const token = jwt.sign(
+      {
+        data: existingUser.rows[0].username,
+      },
+      process.env.RESET_PASSWORD_KEY,
+      { expiresIn: "1h" }
+    );
+
+    // email to send
+
+    details = {
+      email: existingUser.rows[0].username,
+      subject: "Companyz Password Reset",
+      text:
+        "Hello " +
+        data.rows[0].first_name +
+        "." +
+        "\nClick on the link below to reset your password.\n"+
+        token
+        +" \n Best Companyz",
+    };
+
+    console.log(existingUser.rows[0], token);
+    sendResetEMail({});
+    res.json({ loggedIn: false, status: "Reset password email sent to user" });
+  }
+};

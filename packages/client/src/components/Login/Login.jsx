@@ -79,7 +79,7 @@ const Login = () => {
           type="password"
         />
         <Center>
-          <Text onClick={() => navigate("/forgotpassword") }>Forgot Password ? </Text>
+          <Text onClick={() => navigate("/forgotpassword") }> Forgot Password ? </Text>
         </Center>
 
         <ButtonGroup pt="1rem">

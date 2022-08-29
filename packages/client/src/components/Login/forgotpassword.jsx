@@ -6,25 +6,29 @@ import {
   VStack,
   Center,
 } from "@chakra-ui/react";
-import { loginFormSchema } from "@companyz/common";
+import { forgotPasswordSchema } from "@companyz/common";
 import { Form, Formik } from "formik";
 import { useContext, useState } from "react";
 import { useNavigate } from "react-router";
 import { AccountContext } from "../AccountContext";
 import TextField from "../shared/TextField";
 
-const Login = () => {
+const ForgotPassword = () => {
   const { setUser } = useContext(AccountContext);
   const [error, setError] = useState(null);
   const navigate = useNavigate();
+
+  console.log("vals");
+
   return (
     <Formik
-      initialValues={{ username: "", password: "" }}
-      validationSchema={loginFormSchema}
+      initialValues={{ username: "ghvghvhj"}}
+      validationSchema={forgotPasswordSchema}
       onSubmit={(values, actions) => {
         const vals = { ...values };
-        actions.resetForm();
-        fetch("http://localhost:4000/auth/login", {
+        console.log("vals545");
+        console.log(values);
+        fetch("http://localhost:4000/auth/forgotpass", {
           method: "POST",
           credentials: "include",
           headers: {
@@ -47,7 +51,7 @@ const Login = () => {
             if (data.status) {
               setError(data.status);
             } else if (data.loggedIn) {
-              navigate("/home");
+              navigate("/login");
             }
           });
       }}
@@ -81,4 +85,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default ForgotPassword;

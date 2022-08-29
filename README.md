@@ -40,6 +40,10 @@ This application requires you have the following installed on your machine:
  * Change directories from the root directory to the `/packages/server` and run $ `yarn install`
  * Change directories from the curent directory to the `/packages/client` and run $ `yarn install`
 
+##### Demo
+Login Demo can be found [here](https://www.loom.com/share/2dbdcba8b12740d9aaab5c7ca0381011)
+
+Profile update Demo can be found [here](https://www.loom.com/share/ac7e28a3604b4294b46d8bb57a541fb2) 
 
 ### CONFIGURATION
 -------------
