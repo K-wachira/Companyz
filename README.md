@@ -67,6 +67,15 @@ Profile update Demo can be found [here](https://www.loom.com/share/ac7e28a3604b4
     #Aws user cred access and secret keys accessible IAM services on AWS console. 
     AWS_ACCESS_KEY=
     AWS_SECRET_KEY=
+    
+    #Email credentials 
+
+    EMAIL_ACCOUNT=
+    EMAIL_PASSWORD
+
+    #Reset Password token
+    RESET_PASSWORD_KEY=anotherrandomresettokenen
+
 ```
 
  * Exceute query in the `database.sql` file on the created database to create relevant fields and table.
